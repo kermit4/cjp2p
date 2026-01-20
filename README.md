@@ -3,7 +3,7 @@ PEJOVU -  PEer-to-peer Json OVer Udp
 A simple, interoperable, and expansible, p2p protocol, encouraged by https://farcaster.xyz/vitalik.eth/0xd6b8e141
 
 # protocol 
-    JSON over UDP
+JSON over UDP
 ## seen in the wild
 - { message_type: "Who's around?"; }
 - { message_type: "Who's around:"; 
