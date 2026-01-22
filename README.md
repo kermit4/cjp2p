@@ -23,9 +23,9 @@ Please return any cookies you receive in your responses. { .... cookie: ... };
     "content_offset":0 }
 
 ## development hints:
-  (echo -n '[{"message_type":"hiho", "a":9, "l":{"k":[1,2,3],"x":666}},{"message_type":"Please send peers."}]' ;read)|nc -u localhost 24254
+  (echo -n '[{"message_type":"hiho", "a":9, "l":{"k":[1,2,3],"x":666}},{"message_type":"Please send peers."}]' ;read)|nc -u 148.71.89.128 24254
 
-  tcpdump -As 4000 -i any port 24254
+  tcpdump -As 9999 -i any port 24254
 
 
 ## message type ideas:
