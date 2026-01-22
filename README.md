@@ -6,20 +6,27 @@ A simple, interoperable, expansible, p2p protocol, inspired by https://farcaster
 JSON array of messages, sent over UDP
 
 Please return any cookies you receive in your responses. { .... cookie: ... };
-## message types seen in the wild
-- { message_type: "These are peers."; 
-    [ "1.2.3.4:1234", ... ]
-}
-- { message_type: "Please send content."; 
-    content_id: "...";
-    content_offset: 0;
-    content_length: 1024; 
-    }
-- { message_type: "Here is content."; 
-    content_id: "...";
-    content_offset: 0;
-    content_b64: "<base64>"
-}
+
+## message types currently seen in the wild
+- { "message_type": "Please send peers." }
+- { "message_type":"These are peers.","peers":[
+    "148.71.89.128:43344",
+    "148.71.89.128:50352"] } 
+- { "message_type": "Please send content.",
+     "content_id":"d8b778285d0006ac17839bcded0fb9bd5dc9cbc8e869adb7b9bbea31efa8070e",
+      "content_length":4096,
+      "content_offset":0 }
+- { "message_type": "Here is  content.",
+    "content_id":"d8b778285d0006ac17839bcded0fb9bd5dc9cbc8e869adb7b9bbea31efa8070e",
+    "content_b64": "aGk=",
+    "content_eof": 1234,
+    "content_offset":0 }
+
+## development hints:
+  (echo -n '[{"message_type":"hiho", "a":9, "l":{"k":[1,2,3],"x":666}},{"message_type":"Please send peers."}]' ;read)|nc -u localhost 24254
+
+  tcpdump -As 4000 -i any port 24254
+
 
 ## message type ideas:
 - timestamp requests to learn most responsive service from your location
