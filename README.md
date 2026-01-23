@@ -53,11 +53,10 @@ pay attention to unhanlded messages and handle them, or make your own, you don't
 # future possibilities
 
 ## message type ideas:
-- timestamp requests to learn most responsive service from your location
+- chksums of the message array
+- timestamp requests to learn most responsive service from your location (and some protocol that replies return these timestamps)
 - public keys in "Receive peers."
-- message_type hash of me  hash type sha2526 sha256: ".."; // checksum the json array string     so far before appending this object
-- { message_type: "try these others for the content"; content_id: "..."; peer_list: [ ip,port ... ] }
-- chksums of the JSON in the JSON
+- include suggestions as to where else to request content in replies to Please send content.
 - channels, like a stream but multiple senders
 - encryption
 - economics to insentivize resource sharing
