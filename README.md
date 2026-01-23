@@ -14,7 +14,7 @@ Please return any cookies you receive in your responses. { .... cookie: ... };
     "148.71.89.128:43344",
     "148.71.89.128:50352"] } 
 - { "message_type": "Please send content.",
-     "content_id":"d8b778285d0006ac17839bcded0fb9bd5dc9cbc8e869adb7b9bbea31efa8070e",
+     "content_id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
       "content_length":4096,
       "content_offset":0 }
 - { "message_type": "Here is  content.",
