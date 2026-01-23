@@ -6,8 +6,6 @@ A simple, interoperable, expansible, p2p protocol, inspired by https://farcaster
 ## protocol 
 JSON array of messages, sent over UDP
 
-Please return any cookies you receive in your responses. { .... cookie: ... };
-
 ## message types 
 - { "message_type": "Please send peers." }
 - { "message_type":"These are peers.","peers":[
