@@ -35,6 +35,8 @@ https://github.com/kermit4/pejovu-rust
 
   tcpdump -As 9999 -i any port 24254
 
+pay attention to unhanlded messages and handle them, or make your own, you don't have to wait for some official protocol update.
+
 ## test files
 - faabcf33ae53976d2b8207a001ff32f4e5daae013505ac7188c9ea63988f8328 *ubuntu-24.04.3-desktop-amd64.iso
 - c3514bf0056180d09376462a7a1b4f213c1d6e8ea67fae5c25099c6fd3d8274b *ubuntu-24.04.3-live-server-amd64.iso
