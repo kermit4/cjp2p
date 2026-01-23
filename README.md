@@ -15,7 +15,7 @@ JSON array of messages, sent over UDP
      "content_id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
       "content_length":4096,
       "content_offset":0 }
-- { "message_type": "Here is  content.",
+- { "message_type": "Here is content.",
     "content_id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
     "content_b64": "aGk=",
     "content_eof": 2,
@@ -33,7 +33,10 @@ https://github.com/kermit4/pejovu-rust
 
   tcpdump -As 9999 -i any port 24254
 
-pay attention to unhanlded messages and handle them, or make your own, you don't have to wait for some official protocol update.
+pay attention to unhandled messages and try to handle them, or make your own, you don't have to wait for some official protocol update or new messages or new fields.
+
+Telegram group: https://t.me/pejovu
+
 
 ## test files
 - faabcf33ae53976d2b8207a001ff32f4e5daae013505ac7188c9ea63988f8328 *ubuntu-24.04.3-desktop-amd64.iso
@@ -50,11 +53,15 @@ pay attention to unhanlded messages and handle them, or make your own, you don't
 
 # future possibilities
 
-## message type ideas:
-- chksums of the message array
+## protocol ideas:
+- checksums of the message array
+- "hi" messages just to keep peers active in peer lists?   3 way with timestamps?
 - timestamp requests to learn most responsive service from your location (and some protocol that replies return these timestamps)
+- some way to prevent being used as a DDOS by replying to a spoofed IP (some sort of cookie/handshake..calculated by a local random, to not need to remember them all)
+- need sub-hashes otherwise a bad bit may copy around forever, breaking a file
 - public keys in "Receive peers."
 - include suggestions as to where else to request content in replies to Please send content.
+- streams, i.e. files that keep growing
 - channels, like a stream but multiple senders
 - encryption
 - economics to insentivize resource sharing
