@@ -7,19 +7,20 @@ A connectionless, simple, interoperable, expansible, p2p protocol, inspired by h
 JSON array of messages, sent over UDP
 
 ## message types 
-- { "message_type": "Please send peers." }
-- { "message_type":"These are peers.","peers":[
+- {"PleaseSendPeers":{}}
+- {"TheseArePeers":{
+    "peers":[
     "148.71.89.128:43344",
-    "148.71.89.128:50352"] } 
-- { "message_type": "Please send content.",
+    "148.71.89.128:50352"] } }
+- {"PleaseSendContent":{
      "content_id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
       "content_length":4096,
-      "content_offset":0 }
-- { "message_type": "Here is content.",
+      "content_offset":0 }}
+- { "HereIsContent": { 
     "content_id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
     "content_b64": "aGk=",
     "content_eof": 2,
-    "content_offset":0 }
+    "content_offset":0 } }
 
 ## implementations
 https://github.com/kermit4/pejovu-rust
