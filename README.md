@@ -36,7 +36,7 @@ https://github.com/kermit4/pejovu-rust
 
 pay attention to unhandled messages and try to handle them, or make your own, you don't have to wait for some official protocol update or new messages or new fields.
 
-Telegram group: https://t.me/pejovu
+Telegram group: https://t.me/cjp2p
 
 
 ## test files
