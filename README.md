@@ -23,7 +23,7 @@ JSON array of messages, sent over UDP
     "content_offset":0 } }
 
 ## implementations
-https://github.com/kermit4/pejovu-rust
+https://github.com/kermit4/cjp2p-rust
 
 ## likely to be running nodes
 148.71.89.128:24254
