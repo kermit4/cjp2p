@@ -58,6 +58,7 @@ Telegram group: https://t.me/cjp2p
 - checksums of the message array
 - "hi" messages just to keep peers active in peer lists?   3 way with timestamps?
 - timestamp requests to learn most responsive service from your location (and some protocol that replies return these timestamps)
+- supported message types (and fields?)  .. may be too big for a singre reply and need the "file" transfer
 - some way to prevent being used as a DDOS by replying to a spoofed IP (some sort of cookie/handshake..calculated by a local random, to not need to remember them all)
 - need sub-hashes otherwise a bad bit may copy around forever, breaking a file
 - public keys in "Receive peers."
