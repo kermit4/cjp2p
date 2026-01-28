@@ -4,23 +4,25 @@ A connectionless, simple, interoperable, expansible, p2p protocol, inspired by h
 
 # current state as seen in the wild
 ## protocol 
-JSON array of messages, sent over UDP
+JSON array of message
 
 ## message types 
 - {"PleaseSendPeers":{}}
 - {"TheseArePeers":{
-    "peers":[
-    "148.71.89.128:43344",
-    "148.71.89.128:50352"] } }
+        "peers":[
+            "148.71.89.128:43344",
+            "148.71.89.128:50352"] } }
 - {"PleaseSendContent":{
-     "content_id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
-      "content_length":4096,
-      "content_offset":0 }}
+        "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
+        "length":4096,
+        "offset":0 }}
 - { "HereIsContent": { 
-    "content_id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
-    "content_b64": "aGk=",
-    "content_eof": 2,
-    "content_offset":0 } }
+        "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
+        "base64": "aGk=",
+        "eof": 2,
+        "offset":0 } }
+- {"PleaseReturnThisMessage":{...}}   
+- {"ReturnedMessage":{...}}  // for timestamping, maybe other things.
 
 ## implementations
 https://github.com/kermit4/cjp2p-rust
@@ -30,14 +32,17 @@ https://github.com/kermit4/cjp2p-rust
 159.69.54.127:24254
 
 # development hints:
-  (echo -n '[{"message_type":"Please send peers."}]' ;read)|nc -u 148.71.89.128 24254 
+  echo -n '[{"PleaseSendPeers":{}}]' |nc -u localhost 24254
 
   tcpdump -As 9999 -i any port 24254
 
-pay attention to unhandled messages and try to handle them, or make your own, you don't have to wait for some official protocol update or new messages or new fields.
+This file sharing is more of a primitave than a main purpose, providing applications a way to reliably receive data of arbitrary size from many peers.
+
+The protocol should sound more like people than computers.   Simple requests, share a lot, expect little, be tolerant -- you're talking to strangers using automation.  Prefer to leave decisions up to implementations.  It's a language for common people.
+
+pay attention to unhandled messages and try to handle them, or make your own -- you don't have to wait for some official protocol update or new messages or new fields.
 
 Telegram group: https://t.me/cjp2p
-
 
 ## test files
 - faabcf33ae53976d2b8207a001ff32f4e5daae013505ac7188c9ea63988f8328 *ubuntu-24.04.3-desktop-amd64.iso
@@ -49,7 +54,7 @@ Telegram group: https://t.me/cjp2p
 - 8M 5b6656f16181bc0689b583d02b8b8272a02049af3ba07715c4a6c08beef814c2
 - 16M 7caacb04f205faf47a8d55ea7c3c6b642377b850d970f7df5233f213415829d2
 - 32M 24349fedc2836f75e58b199c748e6fb1808136bb8ab9f618a264c64ce735fa5b
-- 65M 35fd7b1f88666d3156d32fa89b0bb0930b3a8eb86dd711d0fe277f45b465791f
+- 64M 35fd7b1f88666d3156d32fa89b0bb0930b3a8eb86dd711d0fe277f45b465791f
 - 
 
 # future possibilities
@@ -60,9 +65,9 @@ Telegram group: https://t.me/cjp2p
 - timestamp requests to learn most responsive service from your location (and some protocol that replies return these timestamps)
 - supported message types (and fields?)  .. may be too big for a singre reply and need the "file" transfer
 - some way to prevent being used as a DDOS by replying to a spoofed IP (some sort of cookie/handshake..calculated by a local random, to not need to remember them all)
-- need sub-hashes otherwise a bad bit may copy around forever, breaking a file
+- need checksums of blocks before complete, confirmed data before sending it on, otherwise a bad bit may copy around forever, breaking a file
 - public keys in "Receive peers."
-- include suggestions as to where else to request content in replies to Please send content.
+- include suggestions as to where else to request content in replies to PleaseSendContent.
 - streams, i.e. files that keep growing
 - channels, like a stream but multiple senders
 - encryption
