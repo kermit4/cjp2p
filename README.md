@@ -8,7 +8,7 @@ JSON array of message
 
 ## message types 
 - {"PleaseSendPeers":{}}
-- {"TheseArePeers":{
+- {"Peers":{
         "peers":[
             "148.71.89.128:43344",
             "148.71.89.128:50352"] } }
@@ -16,7 +16,7 @@ JSON array of message
         "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
         "length":4096,
         "offset":0 }}
-- { "HereIsContent": { 
+- { "Content": { 
         "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
         "base64": "aGk=",
         "eof": 2,
