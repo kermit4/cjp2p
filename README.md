@@ -44,7 +44,7 @@ pay attention to unhandled messages and try to handle them, or make your own -- 
 
 Telegram group: https://t.me/cjp2p
 
-## test files
+## test files available (under both their sha256 hash and name)
 - c3514bf0056180d09376462a7a1b4f213c1d6e8ea67fae5c25099c6fd3d8274b *ubuntu-24.04.3-live-server-amd64.iso
 - c74833a55e525b1e99e1541509c566bb3e32bdb53bf27ea3347174364a57f47c *ubuntu-24.04.3-wsl-amd64.wsl
 - 1M d8b778285d0006ac17839bcded0fb9bd5dc9cbc8e869adb7b9bbea31efa8070e
