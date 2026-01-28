@@ -22,7 +22,7 @@ JSON array of message
         "eof": 2,
         "offset":0 } }
 - {"PleaseReturnThisMessage":{...}}   
-- {"ReturnedMessage":{...}}  // for timestamping, maybe other things.
+- {"ReturnedMessage":{...}}  // probably for timestamping, maybe other things.   Send it all back with your reply, if any.
 
 ## implementations
 https://github.com/kermit4/cjp2p-rust
@@ -45,7 +45,6 @@ pay attention to unhandled messages and try to handle them, or make your own -- 
 Telegram group: https://t.me/cjp2p
 
 ## test files
-- faabcf33ae53976d2b8207a001ff32f4e5daae013505ac7188c9ea63988f8328 *ubuntu-24.04.3-desktop-amd64.iso
 - c3514bf0056180d09376462a7a1b4f213c1d6e8ea67fae5c25099c6fd3d8274b *ubuntu-24.04.3-live-server-amd64.iso
 - c74833a55e525b1e99e1541509c566bb3e32bdb53bf27ea3347174364a57f47c *ubuntu-24.04.3-wsl-amd64.wsl
 - 1M d8b778285d0006ac17839bcded0fb9bd5dc9cbc8e869adb7b9bbea31efa8070e
