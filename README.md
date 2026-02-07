@@ -2,7 +2,10 @@ CJP2P - Connectionless JSON P2P Protocol
 
 A connectionless, simple, interoperable, expansible, p2p protocol, inspired by https://farcaster.xyz/vitalik.eth/0xd6b8e141 and https://medium.com/@webseanhickey/the-evolution-of-a-software-engineer-db854689243
 
-# as seen in the wild (as in, implement or extend as much or as little as you like, or something new!   The only rules are in the JSON spec, not here.  You could even negotiate a non-JSON channel, or send non-JSON here, though it may be more difficult for others to implement than sticking to the pattern.)
+# as seen in the wild. 
+
+Implement or extend as much or as little as you like, or something new!   
+
 ## protocol 
 JSON array of message
 
@@ -22,7 +25,7 @@ JSON array of message
         "eof": 2,
         "offset":0 } }
 - {"PleaseReturnThisMessage":{...}}   
-- {"ReturnedMessage":{...}}  // probably for timestamping, maybe other things.   Send it all back with your reply, if any.
+- {"ReturnedMessage":{...}}  // probably for timestamping, maybe other things, like an HTTP cookie.   Send it all back with your reply, if there is any reply to send.
 
 ## implementations
 https://github.com/kermit4/cjp2p-rust
