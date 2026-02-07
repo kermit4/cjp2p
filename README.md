@@ -10,6 +10,7 @@ Implement or extend as much or as little as you like, or something new!
 JSON array of message
 
 ## message types 
+```JSON
 - {"PleaseSendPeers":{}}
 - {"Peers":{
         "peers":[
@@ -26,6 +27,7 @@ JSON array of message
         "offset":0 } }
 - {"PleaseReturnThisMessage":{...}}   
 - {"ReturnedMessage":{...}}  // probably for timestamping, maybe other things, like an HTTP cookie.   Send it all back with your reply, if there is any reply to send.
+```
 
 ## implementations
 https://github.com/kermit4/cjp2p-rust
