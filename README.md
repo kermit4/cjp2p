@@ -11,22 +11,22 @@ JSON array of message
 
 ## message types 
 ```JSON
-- {"PleaseSendPeers":{}}
-- {"Peers":{
-        "peers":[
-            "148.71.89.128:43344",
-            "148.71.89.128:50352"] } }
-- {"PleaseSendContent":{
-        "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
-        "length":4096,
-        "offset":0 }}
-- { "Content": { 
-        "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
-        "base64": "aGk=",
-        "eof": 2,
-        "offset":0 } }
-- {"PleaseReturnThisMessage":{...}}   
-- {"ReturnedMessage":{...}}  // probably for timestamping, maybe other things, like an HTTP cookie.   Send it all back with your reply, if there is any reply to send.
+{"PleaseSendPeers":{}}
+{"Peers":{
+      "peers":[
+          "148.71.89.128:43344",
+          "148.71.89.128:50352"] } }
+{"PleaseSendContent":{
+      "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
+      "length":4096,
+      "offset":0 }}
+{ "Content": { 
+      "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
+      "base64": "aGk=",
+      "eof": 2,
+      "offset":0 } }
+{"PleaseReturnThisMessage":{...}}   
+{"ReturnedMessage":{...}}  // probably for timestamping, maybe other things, like an HTTP cookie.   Send it all back with your reply, if there is any reply to send.
 ```
 
 ## implementations
