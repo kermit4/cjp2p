@@ -31,6 +31,7 @@ JSON array of message
 
 ## implementations
 https://github.com/kermit4/cjp2p-rust
+https://github.com/kermit4/cjp2p-bash (prototype -- it can download a test file)
 
 ## likely to be running nodes
 148.71.89.128:24254
