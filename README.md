@@ -30,7 +30,7 @@ JSON array of message
 ```
 
 ## implementations
-https://github.com/kermit4/cjp2p-rust (implements everything listed below)
+https://github.com/kermit4/cjp2p-rust (implements everything listed above)
 https://github.com/kermit4/cjp2p-bash (less features)
 
 ## likely to be running nodes
