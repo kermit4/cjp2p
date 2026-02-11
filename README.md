@@ -33,10 +33,10 @@ JSON array of message
 ```
 
 ## implementations
-https://github.com/kermit4/cjp2p-rust (implements everything listed above)
-https://github.com/kermit4/cjp2p-bash (most features)
-https://github.com/kermit4/cjp2p-ruby (less features but moving fast) 
-https://github.com/kermit4/cjp2p-haskell (few features)
+https://github.com/kermit4/cjp2p-rust (implements everything listed above and by most the most deveoped)
+https://github.com/kermit4/cjp2p-bash (most features, slow transfers, but good for ideas and easier to read than Rust for many)
+https://github.com/kermit4/cjp2p-ruby (most feature very fast development cycle, but not very intelligent) 
+https://github.com/kermit4/cjp2p-haskell (very few features)
 
 ## likely to be running nodes
 148.71.89.128:24254
