@@ -4,19 +4,32 @@ A connectionless, simple, interoperable, expansible, p2p protocol, inspired by h
 
 # as seen in the wild 
 
-Implement or extend as much or as little as you like, or something new!   
 
 ## protocol 
-JSON array of message
+JSON array of messages.   Feel free to add your own or extend on the existing ones.   Maybe make a PR into here if you implement something new.  Any incompatible messages should use new names.  
 
 ## message types 
+### MUST implement
+#### Like an HTTP Cookie, mostly used so spoofed IPs aren't maliciously flooded with your node
 ```JSON
-### layer 1
+{"PleaseAlwaysReturnThisMessage":["any",{"valid":"JSON"}]}
+{"AlwaysReturned":               ["any",{"valid":"JSON"}]}  
+```
+### SHOULD implement
+#### Peer discovery
+```JSON
 {"PleaseSendPeers":{}}
 {"Peers":{
       "peers":[
           "148.71.89.128:43344",
           "148.71.89.128:50352"] } }
+
+{"PleaseReturnThisMessage":["any",{"valid":"JSON"}]}
+{"ReturnedMessage":        ["any",{"valid":"JSON"}]}  
+```
+
+### MAY implement
+```JSON
 {"PleaseSendContent":{
       "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
       "length":4096,
@@ -24,17 +37,12 @@ JSON array of message
 { "Content": { 
       "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
       "base64": "aGk=",
-      "eof": 2,           // this refers to the full length of the content, not specific to this message
+      "eof": 2,           // EOF refers to the full length of the content, not specific to this message
       "offset":0 } }
-{"PleaseReturnThisMessage":...}    // send it all back with a reply, if there is otherwise a reply to send back.  It's probably to see how far away you are (in time).
-{"ReturnedMessage":...}  
 {"MaybeTheyHaveSome":{"id":"foo",
       "peers":[ "148.71.89.128:43344", "148.71.89.128:50352"] } } // suggest where else to look for the content, this a likely reply to PleaseSendContent
-{"PleaseAlwaysReturnThisMessage":...}   // it's a good idea to cookie people so they can't use your node for DOSing other people by spoofing their IP
-{"AlwaysReturned":...} // if you dont, you may be rate limited or ignored for the above reason
+
 ```
-### layer 2 (built upon the layer 1 functionality)
-TBD 
 
 ## implementations
 - https://github.com/kermit4/cjp2p-rust (implements everything listed above and by most the most developed and intelligent)
@@ -82,10 +90,8 @@ Telegram group: https://t.me/cjp2p
 # future possibilities
 
 ## protocol ideas:
-- checksums of the message array
 - my current train of thought is that a large file is a series of small files of known hashes, which would support streaming, so the core function of obtaining content based on a hash does not need sub-hashes for verifiable streaming or relaying large files before they're done, instead whats needed is to get a file of hashes or some other "protocol" on top of the basic "get content of this hash" protocol.
 - "hi" messages just to keep peers active in peer lists?   3 way with timestamps?
-- timestamp requests to learn most responsive service from your location (and some protocol that replies return these timestamps)
 - some way to prevent being used as a DDOS by replying to a spoofed IP (some sort of cookie/handshake..calculated by a local random, to not need to remember them all)
 - need checksums of blocks before complete, confirmed data before sending it on, otherwise a bad bit may copy around forever, breaking a file
 - public keys in "Receive peers."
