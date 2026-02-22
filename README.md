@@ -10,7 +10,7 @@ JSON array of messages.   Feel free to add your own or extend on the existing on
 
 ## message types 
 ### MUST implement
-#### Like an HTTP Cookie, mostly used so spoofed IPs aren't maliciously flooded with your node
+#### Like an HTTP Cookie, send it back with any message to the node that provided it
 ```JSON
 {"PleaseAlwaysReturnThisMessage":["any",{"valid":"JSON"}]}
 {"AlwaysReturned":               ["any",{"valid":"JSON"}]}  
@@ -29,6 +29,7 @@ JSON array of messages.   Feel free to add your own or extend on the existing on
 ```
 
 ### MAY implement
+#### a basic use. EOF refers to the full completed length of the content.  
 ```JSON
 {"PleaseSendContent":{
       "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
@@ -37,10 +38,11 @@ JSON array of messages.   Feel free to add your own or extend on the existing on
 { "Content": { 
       "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
       "base64": "aGk=",
-      "eof": 2,           // EOF refers to the full length of the content, not specific to this message
+      "eof": 2,           
       "offset":0 } }
-{"MaybeTheyHaveSome":{"id":"foo",
-      "peers":[ "148.71.89.128:43344", "148.71.89.128:50352"] } } // suggest where else to look for the content, this a likely reply to PleaseSendContent
+{"MaybeTheyHaveSome":{
+       "id":"foo",
+      "peers":[ "148.71.89.128:43344", "148.71.89.128:50352"] } }
 
 ```
 
