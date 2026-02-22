@@ -26,11 +26,12 @@ JSON array of message
       "base64": "aGk=",
       "eof": 2,           // this refers to the full length of the content, not specific to this message
       "offset":0 } }
-{"PleaseReturnThisMessage":{...}}   
-{"ReturnedMessage":{...}}  // probably for timestamping, maybe other things, like an HTTP cookie.   Send it all back with your reply, if there is any reply to send.
+{"PleaseReturnThisMessage":...}    // send it all back with a reply, if there is otherwise a reply to send back.  It's probably to see how far away you are (in time).
+{"ReturnedMessage":...}  
 {"MaybeTheyHaveSome":{"id":"foo",
-      "peers":[ "148.71.89.128:43344", "148.71.89.128:50352"] } } // suggest where else to look for foo, this is likely in reply to PleaseSendContent
-}}   
+      "peers":[ "148.71.89.128:43344", "148.71.89.128:50352"] } } // suggest where else to look for the content, this a likely reply to PleaseSendContent
+{"PleaseAlwaysReturnThisMessage":...}   // it's a good idea to cookie people so they can't use your node for DOSing other people by spoofing their IP
+{"AlwaysReturned":...} // if you dont, you may be rate limited or ignored for the above reason
 ```
 ### layer 2 (built upon the layer 1 functionality)
 TBD 
