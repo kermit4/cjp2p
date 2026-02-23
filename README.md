@@ -6,11 +6,11 @@ A connectionless, simple, interoperable, expansible, p2p protocol, inspired by h
 
 
 ## protocol 
-JSON array of messages.   Feel free to add your own or extend on the existing ones.   Maybe make a PR into here if you implement something new.  Any incompatible messages should use new names.  
+JSON array of messages.   Make a PR into here if you see any new fields or messages.
 
 ## message types 
 ### MUST implement
-#### Like an HTTP Cookie, send it back with any message to the node that provided it
+#### Like an HTTP Cookie, send it back with any message to the node that provided it.  
 ```JSON
 {"PleaseAlwaysReturnThisMessage":["any",{"valid":"JSON"}]}
 {"AlwaysReturned":               ["any",{"valid":"JSON"}]}  
@@ -57,7 +57,7 @@ JSON array of messages.   Feel free to add your own or extend on the existing on
 159.69.54.127:24254
 
 # development hints:
-  echo -n '[{"PleaseSendPeers":{}}]' |nc -u localhost 24254
+  echo -n '[{"PleaseSendPeers":{}}]' |nc -u localhost -p 12321 24254
 
   tcpdump -As 9999 -i any port 24254
 
@@ -85,22 +85,20 @@ Telegram group: https://t.me/cjp2p
 - c7dce40a2af023d2ab7d4bc26fac78cba7f7cb7854f67f9fb5bf72b14d9931d8 1024M
 - 8e008973582673665a326cc44c681c11d9d39ec61dd529f3c1aa26695f4880e7 0x10001 bytes (one byte more than 64k)
 
-- 80dfa275db78819616ae2cf361c39323d3b2d69b565dfea5706eed6a29aad352  1024M.shasums                                   the sha256sums of each 256k block of this file, which are separately downloadable
-- a40e24319477590fdcad751a76dca92e542f0134f6dd93582decd1557d2676ad  256Mshasums the sha256sums of each 256k block of this file, which are separately downloadable
+- 80dfa275db78819616ae2cf361c39323d3b2d69b565dfea5706eed6a29aad352  the sha256sums of each 256k block of 1024M, which are separately downloadable
+- a40e24319477590fdcad751a76dca92e542f0134f6dd93582decd1557d2676ad  the sha256sums of each 256k block of 256M, which are separately downloadable
 
 
 # future possibilities
 
 ## protocol ideas:
-- my current train of thought is that a large file is a series of small files of known hashes, which would support streaming, so the core function of obtaining content based on a hash does not need sub-hashes for verifiable streaming or relaying large files before they're done, instead whats needed is to get a file of hashes or some other "protocol" on top of the basic "get content of this hash" protocol.
-- "hi" messages just to keep peers active in peer lists?   3 way with timestamps?
-- some way to prevent being used as a DDOS by replying to a spoofed IP (some sort of cookie/handshake..calculated by a local random, to not need to remember them all)
-- need checksums of blocks before complete, confirmed data before sending it on, otherwise a bad bit may copy around forever, breaking a file
 - public keys in "Receive peers."
-- streams, i.e. files that keep growing..maybe just make eof an optional field
-- channels, like a stream but multiple senders
+- large files as a series of sha256sums of 256K blocks. so parts can be shared before its all done, and errors dont cause a complete retransfer.
+- streams, i.e. a running series of sha256sums which are fetched with PleaseSendContent
+- channels, like a stream but multiple senders, a concensus on it (like a blockchain)
+- channels, like a stream but multiple senders, just open to anyone (could get noisy)
 - encryption
 - economics to incentivize resource sharing
 - chat
-- chat message white listing to avoid spam
+- chat message white or black listing to avoid spam, and sharing the lists
 
