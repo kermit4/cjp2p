@@ -47,7 +47,7 @@ JSON array of messages.   Make a PR into here if you see any new fields or messa
 ```
 
 ## implementations
-- https://github.com/kermit4/cjp2p-rust (implements everything listed above and by most the most developed and intelligent)
+- https://github.com/kermit4/cjp2p-rust (implements everything listed above and far the most developed and intelligent)
 - https://github.com/kermit4/cjp2p-ruby (most protocol features, but not intelligent)
 - https://github.com/kermit4/cjp2p-bash (most protocol features, but not intelligent, slow transfers)
 - https://github.com/kermit4/cjp2p-haskell (very few features)
