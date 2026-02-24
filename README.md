@@ -85,7 +85,7 @@ Telegram group: https://t.me/cjp2p
 - c7dce40a2af023d2ab7d4bc26fac78cba7f7cb7854f67f9fb5bf72b14d9931d8 1024M
 - 8e008973582673665a326cc44c681c11d9d39ec61dd529f3c1aa26695f4880e7 0x10001 bytes (one byte more than 64k)
 
-- 80dfa275db78819616ae2cf361c39323d3b2d69b565dfea5706eed6a29aad352  1024 sha256sums of each 1M block of 1024M, which are separately downloadable -- this is fun: timeout 4 ./target/debug/cjp2p-rust                                         80dfa275db78819616ae2cf361c39323d3b2d69b565dfea5706eed6a29aad352 ; ./target/debug/cjp2p-rust $(cat                                                shared/80dfa275db78819616ae2cf361c39323d3b2d69b565dfea5706eed6a29aad352 )
+- 80dfa275db78819616ae2cf361c39323d3b2d69b565dfea5706eed6a29aad352  1024 sha256sums of each 1M block of 1024M, which are separately downloadable -- this is fun: make release && timeout 4 ./target/releaseb/cjp2p-rust                                         80dfa275db78819616ae2cf361c39323d3b2d69b565dfea5706eed6a29aad352 ;./target/release/cjp2p-rust $(cat                                                shared/80dfa275db78819616ae2cf361c39323d3b2d69b565dfea5706eed6a29aad352 )
 - a40e24319477590fdcad751a76dca92e542f0134f6dd93582decd1557d2676ad  1024 sha256sums of each 256k block of 256M, which are separately downloadable
 
 
