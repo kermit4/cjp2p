@@ -10,7 +10,7 @@ JSON array of messages.   Please make a PR into here if you spot any new fields 
 
 ## message types 
 ### MUST implement
-#### Like an HTTP Cookie, send it back with any message to the node that provided it.  
+#### Like an HTTP Cookie, send it back with any message to the node that provided it.   (This isn't about user trackning, you can foreget it every few seconds.  This is so you don't spoof your IP to use a node as a flood by making a small sized request of a large sized of reply.)
 ```JSON
 {"PleaseAlwaysReturnThisMessage":["any",{"valid":"JSON"}]}
 {"AlwaysReturned":               ["any",{"valid":"JSON"}]}  
@@ -92,13 +92,14 @@ Telegram group: https://t.me/cjp2p
 # future possibilities
 
 ## protocol ideas:
-- public keys in "PeerInfo"
 - large files as a series of sha256sums of 256K blocks. so parts can be shared before its all done, and errors dont cause a complete retransfer.
 - streams, i.e. a running series of sha256sums which are fetched with PleaseSendContent
-- channels, like a stream but multiple senders, a concensus on it (like a blockchain)
-- channels, like a stream but multiple senders, just open to anyone (could get noisy)
-- encryption
+- channels, like a stream but multiple senders, with consensus (like a blockchain)
+- channels, like a stream but multiple senders, without consensus 
+- encryption something like MyTemporaryPublicKey{e25519:"in base64"}      EncryptedMessages{base64:"some base64 that decrypts to an array of JSON messages"}
 - economics to incentivize resource sharing
-- chat
+- 1:1 chat
+- group chats (this is actually a many to many channel without consensus)
 - chat message white or black listing to avoid spam, and sharing the lists
-
+- synchronized media playback between peers (i dont know why, it just seems fun...a shared experience, at a distance, would go well with group chats)
+-- RecommendedContent message type? 
