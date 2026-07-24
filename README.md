@@ -36,7 +36,7 @@ Telegram group: https://t.me/lowest_common_denominator
 
 ## fun things to try
 
-- [  make_your_own_p2p_app_with_AI_and_no_programming_experience.md](Make your own p2p app with AI and 0 programming experience.)
+- [make_your_own_p2p_app_with_AI_and_no_programming_experience.md](Make your own p2p app with AI and 0 programming experience.)
 
 - Claude, look at pong.html and make a Atari 2600 Combat
 - Claude, look at dashboard.html and make IPv4 scarcity based voting system.
