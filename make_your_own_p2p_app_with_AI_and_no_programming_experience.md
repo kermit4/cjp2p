@@ -1,4 +1,4 @@
-# Make Your Own P2P App With AI, in an Hour
+# Make Your Own P2P App With AI and No Programming Experience
 
 **No coding experience required, no computer required. Just your phone.**
 
