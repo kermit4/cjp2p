@@ -1,0 +1,7 @@
+With a free week of Claude AI coding tool https://claude.ai/referral/p4jq9u71Ig
+
+run a node https://github.com/kermit4/cjp2p-rust/releases
+
+then tell Claude to use https://github.com/kermit4/LCDP_web_apps as examples and make..whatever you want it to make!
+
+You can look at those examples live at http://127.0.0.1:24255/latest/e13a614dff88de239a986bea20ca129c3dc77bb727fac18f2f092eed27cfb3fb/ once you have a node runing.  
