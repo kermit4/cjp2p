@@ -24,7 +24,7 @@ Telegram group: https://t.me/lowest_common_denominator
 - https://knightcolumbia.org/content/protocols-not-platforms-a-technological-approach-to-free-speech
 - https://www.rfc-editor.org/rfc/rfc9518.html
 
-## elaborative essays (not required reading)
+## elaborative essays
 
 - [quick-start.md](quick-start.md)
 - [english_for_the_wire.md](english_for_the_wire.md)
