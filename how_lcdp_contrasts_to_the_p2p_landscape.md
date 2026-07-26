@@ -12,18 +12,13 @@ That narrowness is the whole point of this document: almost everything below is 
 
 ## 1. Where LCDP sits in the stack
 
-```
-Layer 4  Applications             Qaul (mesh chat) · Briar (offline/Tor chat) · specific conventions built on
-                                   a layer-3 substrate (Nostr's kind:1 social notes, NIP-15 marketplaces,
-                                   NIP-34 git tracking; specific Earthstar/Willow document schemas; specific
-                                   Holochain hApps; the Cabal chat app on top of Cable)
-Layer 3  Data models & distribution   Nostr (generic signed event bus + relay sync) · SSB · Hypercore/DAT ·
-                                   Cabal's Cable protocol · Earthstar · Willow · P2Panda · NextGraph ·
-                                   Holochain · Pijul
-Layer 2  Transport/session        libp2p · iroh · GNUnet · Veilid
-Layer 1  Wire framing             LCDP  --  no persistence, no session, no identity, no version, by default
-Layer 0  Datagrams / bytes        UDP, WebSocket, TCP, Bluetooth, carrier pigeon, whatever moves bytes
-```
+| Layer | Name | Members |
+|---|---|---|
+| 4 | Applications | Qaul (mesh chat) · Briar (offline/Tor chat) · specific conventions built on a layer-3 substrate (Nostr's `kind:1` social notes, NIP-15 marketplaces, NIP-34 git tracking; specific Earthstar/Willow document schemas; specific Holochain hApps; the Cabal chat app on top of Cable) |
+| 3 | Data models & distribution | Nostr (generic signed event bus + relay sync) · SSB · Hypercore/DAT · Cabal's Cable protocol · Earthstar · Willow · P2Panda · NextGraph · Holochain · Pijul |
+| 2 | Transport/session | libp2p · iroh · GNUnet · Veilid |
+| 1 | Wire framing | **LCDP** — no persistence, no session, no identity, no version, by default |
+| 0 | Datagrams / bytes | UDP, WebSocket, TCP, Bluetooth, carrier pigeon, whatever moves bytes |
 
 This is a simplification, and a moving target — an earlier pass of this doc put Nostr and Cabal at layer 4 outright, which undersold both. Nostr's base spec (NIP-01) doesn't define what an event *means*; it defines a signed envelope, a `kind` number, and relay-based delivery plus (via NIP-77) real range-based sync — structurally the same job SSB, Hypercore, and Willow do. `kind: 1` social notes are the most popular thing built on that substrate, not the substrate itself, so Nostr's core belongs here at layer 3, with specific NIPs as the layer-4 applications riding on it. Cabal is the same shape: the Cable wire protocol is the layer-3 substrate, and "Cabal the chat app" is one layer-4 thing built on it. Holochain still straddles 2 and 3 outright (it bundles its own transport with its DHT+validation layer). And the layer-3 label had to widen from "storage" to "data models & distribution" once Nostr moved in — that layer covers at least four different distribution strategies: peer-replicated logs (SSB/Hypercore/Earthstar/Willow), a sharded validating DHT (Holochain), patch-algebra diffing (Pijul), and relay-mediated pub/sub with set reconciliation (Nostr). "Storage" was never quite the right word for what Nostr relays or Pijul repos are doing. None of this changes the core mental model: most of this list answers "how do N devices agree on a growing/shared pile of data," and LCDP answers "how do two processes exchange a message without ever needing to agree on a version."
 
